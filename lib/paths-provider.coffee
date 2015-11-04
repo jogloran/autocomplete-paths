@@ -78,6 +78,7 @@ class PathsProvider
     catch e
       return []
     results = fuzzaldrin.filter(files, prefix)
+    results = (r for r in results when r.indexOf('.md') == -1)
 
     suggestions = for result in results
       resultPath = path.resolve(directory, result)
